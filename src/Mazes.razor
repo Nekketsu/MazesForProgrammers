@@ -1,0 +1,14 @@
+﻿<h3>Mazes</h3>
+
+<label for="width">Width:</label>
+<input id="width" type="number" min="1" @bind="Width" />
+
+<label for="height">Height:</label>
+<input id="height" type="number" min="1" @bind="Height" />
+
+<button @onclick="GenerateMaze" />
+
+@if (Image != null)
+{
+    <img src="data:image/png;base64, @Image" />
+}

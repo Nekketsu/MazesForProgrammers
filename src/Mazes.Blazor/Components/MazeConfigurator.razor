@@ -1,0 +1,17 @@
+﻿@using Mazes.Services.Models.Parameters
+
+<div>
+    @foreach (var parameter in Parameters)
+    {
+        @if (parameter is IntParameter intParameter)
+        {
+            <label for="@intParameter.Name">@intParameter.Name</label>
+            <input id="@intParameter.Name" type="number" min="@intParameter.Min" @bind="intParameter.Value" />
+        }
+        else if (parameter is ColorParameter colorParameter)
+        {
+            <label for="@colorParameter.Name">@colorParameter.Name</label>
+            <input type="color" @bind="colorParameter.StringValue" />
+        }
+    }
+</div>

@@ -1,0 +1,76 @@
+﻿@page "/"
+
+@inject IJSRuntime JSRuntime
+
+<h3>Mazes</h3>
+
+<div>
+    <select @bind="SelectedGridType">
+        @foreach (var grid in GridTypes)
+        {
+            <option>@grid</option>
+        }
+    </select>
+
+    <select @bind="SelectedAlgorithm">
+        @foreach (var algorithm in Algorithms)
+        {
+            <option>@algorithm</option>
+        }
+    </select>
+
+    @if (SelectedAlgorithm == nameof(Mazes.Algorithms.GrowingTree))
+    {
+        <select @bind="SelectedGrowingTreeMethod">
+            @foreach (var growingTreeMethod in GrowingTreeMethods)
+            {
+                <option>@growingTreeMethod</option>
+            }
+        </select>
+    }
+</div>
+
+
+@if (SelectedGridType != null)
+{
+    <MazeConfigurator Parameters="@GridConfigurations[SelectedGridType]" />
+}
+
+
+<div>
+    <label for="cellSize">Cell size:</label>
+    <input id="cellSize" type="number" min="1" @bind="CellSize" />
+    <label for="inset">Inset:</label>
+    <input id="inset" type="number" min="0" @bind="Inset" />
+</div>
+
+<div>
+    <label for="showCanvas">Canvas</label>
+    <input id="showCanvas" type="checkbox" @bind="IsCanvasMazeVisible" />
+    <label for="showSvg">SVG</label>
+    <input id="showSvg" type="checkbox" @bind="IsSvgMazeVisible" />
+
+    <button class="btn btn-primary" @onclick="GenerateMaze" disabled="@IsLoading">Generate</button>
+    <button class="btn btn-secondary" @onclick="BraidAsync" disabled="@(Grid == null || IsLoading)">Braid</button>
+
+    @if (IsLoading)
+    {
+        <div class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    }
+</div>
+
+@if (Grid != null)
+{
+    <div style="display:flex; align-items:flex-start">
+        @if (IsCanvasMazeVisible)
+        {
+            <CanvasMaze @ref="canvasMaze" Grid="@Grid" CellSize="@CellSize" Inset="@Inset" />
+        }
+        @if (IsSvgMazeVisible)
+        {
+            <SvgMaze @ref="svgMaze" Grid="@Grid" CellSize="@CellSize" Inset="@Inset" />
+        }
+    </div>
+}
