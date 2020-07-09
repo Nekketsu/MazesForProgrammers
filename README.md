@@ -25,3 +25,7 @@ The solution, as described above, is in the `src` folder, and it contains the fo
 It has been an awesome experience to share code between the C# the console applications and the [Blazor WebAssembly](https://blazor.net) application, making it very straightforward to convert to a web application the implementation of the book with very little effort.
 
 Please, feel free to send issues or pull requests. Any feedback is always welcome!
+
+## Examples
+![Colored maze example](images/Color.png)
+![Colored maze example](images/Polar.png)
