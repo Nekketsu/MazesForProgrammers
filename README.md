@@ -27,5 +27,25 @@ It has been an awesome experience to share code between the C# the console appli
 Please, feel free to send issues or pull requests. Any feedback is always welcome!
 
 ## Examples
-![Colored maze example](images/Color.png)
-![Colored maze example](images/Polar.png)
+<table>
+  <tr>
+    <td><img src="images/3D.png" alt="3D"></td>
+    <td><img src="images/Color.png" alt="Color"></td>
+  </tr>
+  <tr>
+    <td><img src="images/Cube.png" alt="Cube"></td>
+    <td><img src="images/Cylinder.png" alt="Cylinder"></td>
+  </tr>
+  <tr>
+    <td><img src="images/Hexagonal.png" alt="Hexagonal"></td>
+    <td><img src="images/Mobius.png" alt="Mobius"></td>
+  </tr>
+  <tr>
+    <td><img src="images/Polar.png" alt="Polar"></td>
+    <td><img src="images/Sphere.png" alt="Sphere"></td>
+  </tr>
+  <tr>
+    <td><img src="images/Triangular.png" alt="Triangular"></td>
+    <td><img src="images/Weave.png" alt="Weave"></td>
+  </tr>
+</table>
